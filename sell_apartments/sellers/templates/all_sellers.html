@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  
+{% extends "master.html" %}
+
+{% block title %}
+  My Apartments - List of all sellers
+{% endblock %}
+
+
+{% block content %}
+
+  <p><a href="/">HOME</a></p>
+
+  <h1>Sellers</h1>
+  
+  <ul>
+    {% for i in mysellers %}
+      <li><a href="details/{{ i.id }}">{{ i.firstname }} {{ i.lastname }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+</body>
+</html>
