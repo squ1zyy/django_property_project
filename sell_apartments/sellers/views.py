@@ -1,15 +1,16 @@
 from django.views.generic.edit import CreateView
-from django.views.generic.list import ListView
 from .forms import SingUpUserForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login as auth_login
-from django.template.loader import render_to_string
-from django.contrib.sites.shortcuts import get_current_site
 from django.template import loader
 from django.http import HttpResponse
 from .models import RealEstate, PictureMain, CustomUser, BlogPost
 from django.shortcuts import render
 from django.views import View
+from .forms import PropertiesForm
+
+class CreateOffer(View):
+    template_name = "create_offer.html"
 
 class HomePageView(View):
     template_name = 'home.html'

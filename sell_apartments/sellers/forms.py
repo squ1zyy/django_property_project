@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .models import CustomUser
+from .models import CustomUser, RealEstate
 
 class SingUpUserForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
@@ -13,3 +13,8 @@ class SingUpUserForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ('email', 'first_name', 'last_name', 'password_1', 'password_2')
+
+class PropertiesForm(forms.ModelForm):
+    class Meta:
+        model = RealEstate
+        fields = ['title', 'description', 'price', 'location']
